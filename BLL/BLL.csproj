@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetty.Buffers" Version="0.5.0" />
+    <PackageReference Include="DotNetty.Codecs" Version="0.5.0" />
+    <PackageReference Include="DotNetty.Codecs.Http" Version="0.5.0" />
+    <PackageReference Include="DotNetty.Common" Version="0.5.0" />
+    <PackageReference Include="DotNetty.Handlers" Version="0.5.0" />
+    <PackageReference Include="DotNetty.Transport" Version="0.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="System.Memory" Version="4.5.1" />
+    <PackageReference Include="System.Runtime" Version="4.3.0" />
+	  <PackageReference Include="Legacy2CPSWorkaround" Version="1.0.0">
+    <PrivateAssets>All</PrivateAssets>
+  </PackageReference>
+  </ItemGroup>
+
+</Project>

@@ -5,8 +5,486 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIL"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="智能仓储控制系统" Height="800" Width="1100">
     <Grid>
-        
+        <Menu Height="22" VerticalAlignment="Top" Margin="0,0,0,0">
+            <MenuItem Header="权限管理(A)">
+                <Button Content="人员管理" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                <Button Content="角色管理" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                <Button Content="角色权限管理" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            </MenuItem>
+            <MenuItem Header="上架管理" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            <MenuItem Header="下架管理" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            <MenuItem Header="包装管理" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            <MenuItem Header="商品位移" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            <MenuItem Header="耗材打印" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            <MenuItem Header="耗材位移" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            <MenuItem Header="盘点" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            <MenuItem Header="组车拣选" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            <MenuItem Header="扫描确认" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            <MenuItem Header="帮助" Background="{x:Null}" BorderBrush="{x:Null}" Click="MenuItem_Click"/>
+        </Menu>
+        <TabControl Margin="0,22,0,22">
+            <TabItem Header="系统">
+                <Grid>
+                    <Label Content="用  户  名" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" IsReadOnly="True"/>
+                    <Label Content="密　　码" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Button Content="登 录" HorizontalAlignment="Left" Margin="45,240,0,0" VerticalAlignment="Top" Width="180" Height="80" FontSize="36"/>
+                    <Button Content="退 出" HorizontalAlignment="Left" Margin="345,240,0,0" VerticalAlignment="Top" Width="180" Height="80" FontSize="36"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="上架作业">
+                <Grid>
+                    <Label Content="上架工位" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" IsReadOnly="True"/>
+                    <Label Content="条　　码" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="物料编码" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="储位编码" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="料架AB面" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="上架数量" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="实际数量" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <TextBox HorizontalAlignment="Left" Height="55" Margin="300,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
+                    <Label Content="批　　号" HorizontalAlignment="Left" Margin="300,105,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="380,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="生产日期" HorizontalAlignment="Left" Margin="300,135,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="380,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="有 效 期" HorizontalAlignment="Left" Margin="300,165,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="380,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="上架单号" HorizontalAlignment="Left" Margin="300,195,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="380,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Button Content="确 认" HorizontalAlignment="Left" Margin="45,240,0,0" VerticalAlignment="Top" Width="180" Height="80" FontSize="36"/>
+                    <Button Content="完 成" HorizontalAlignment="Left" Margin="345,240,0,0" VerticalAlignment="Top" Width="180" Height="80" FontSize="36"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="45,340,0,0" TextWrapping="Wrap" Text="完成" VerticalAlignment="Top" Width="480" Background="#FFF3D5D5" TextAlignment="Center"/>
+                    <DataGrid Height="351" Margin="0,370,0,0" VerticalAlignment="Top">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="物料编码" Width="180"/>
+                            <DataGridTextColumn Header="物料名称" Width="180"/>
+                            <DataGridTextColumn Header="上架数量" Width="180"/>
+                            <DataGridTextColumn Header="批号" Width="180"/>
+                            <DataGridTextColumn Header="物料条码" Width="180"/>
+                            <DataGridTextColumn Header="状态" Width="180"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="下架作业">
+                <Grid>
+                    <Label Content="拣货工位" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" IsReadOnly="True"/>
+                    <Label Content="条　　码" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="物料编码" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="储位编码" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="拣货数量" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="已捡数量" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="实际数量" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="包  装  台" HorizontalAlignment="Left" Margin="10,225,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="拣货模式" HorizontalAlignment="Left" Margin="300,10,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="380,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" IsReadOnly="True"/>
+                    <TextBox HorizontalAlignment="Left" Height="55" Margin="300,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
+
+                    <Button Content="确 认" HorizontalAlignment="Left" Margin="45,260,0,0" VerticalAlignment="Top" Width="180" Height="80" FontSize="36"/>
+                    <Button Content="完 成" HorizontalAlignment="Left" Margin="345,260,0,0" VerticalAlignment="Top" Width="180" Height="80" FontSize="36"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="45,350,0,0" TextWrapping="Wrap" Text="完成" VerticalAlignment="Top" Width="480" Background="#FFF3D5D5" TextAlignment="Center"/>
+                    <DataGrid Height="351" Margin="0,370,0,0" VerticalAlignment="Top">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="物料编码" Width="180"/>
+                            <DataGridTextColumn Header="物料名称" Width="180"/>
+                            <DataGridTextColumn Header="上架数量" Width="180"/>
+                            <DataGridTextColumn Header="批号" Width="180"/>
+                            <DataGridTextColumn Header="物料条码" Width="180"/>
+                            <DataGridTextColumn Header="状态" Width="180"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="包装作业">
+                <Grid>
+                    <Label Content="包装工位" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" IsReadOnly="True"/>
+                    <Label Content="物料条码" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="物料编码" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="快递单号" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="包装数量" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="扫描数量" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="耗材条码" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="物料尺寸" HorizontalAlignment="Left" Margin="10,225,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="完成" VerticalAlignment="Top" Width="520" Background="#FFF3D5D5" Margin="10,345,0,0" TextAlignment="Center"/>
+
+                    <Label Content="耗材范围" HorizontalAlignment="Left" Margin="550,45,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="630,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="耗材数量" HorizontalAlignment="Left" Margin="550,75,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="630,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+
+                    <Button Content="订单异常" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Width="160" Height="60" FontSize="36"/>
+                    <Button Content="订单打印" HorizontalAlignment="Left" Margin="190,270,0,0" VerticalAlignment="Top" Width="160" Height="60" FontSize="36"/>
+                    <Button Content="包装异常" HorizontalAlignment="Left" Margin="370,270,0,0" VerticalAlignment="Top" Width="160" Height="60" FontSize="36"/>
+                    <Button Content="刷  新" HorizontalAlignment="Left" Margin="863,45,0,0" VerticalAlignment="Top" Width="160" Height="60" FontSize="36"/>
+                    <TabControl Margin="0,380,0.2,-0.2">
+                        <TabItem Header="当前订单">
+                            <Grid Background="#FFE5E5E5">
+                                <DataGrid Margin="0,0,0,0">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="物料编码" Width="180"/>
+                                        <DataGridTextColumn Header="物料名称" Width="180"/>
+                                        <DataGridTextColumn Header="物料条码" Width="180"/>
+                                        <DataGridTextColumn Header="总数量" Width="180"/>
+                                        <DataGridTextColumn Header="完成量" Width="180"/>
+                                        <DataGridTextColumn Header="状态" Width="180"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="包装订单">
+                            <Grid>
+                                <DataGrid Margin="0,0,0,0">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="物料编码" Width="180"/>
+                                        <DataGridTextColumn Header="物料名称" Width="180"/>
+                                        <DataGridTextColumn Header="物料条码" Width="180"/>
+                                        <DataGridTextColumn Header="总数量" Width="180"/>
+                                        <DataGridTextColumn Header="完成量" Width="180"/>
+                                        <DataGridTextColumn Header="状态" Width="180"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="位移上架作业">
+                <Grid>
+                    <Label Content="位移工位" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" IsReadOnly="True"/>
+
+                    <Label Content="物料条码" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="物料编码" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="批　　号" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="生产日期" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="有  效  期" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="上架数量" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="实际数量" HorizontalAlignment="Left" Margin="10,225,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="类　　型" HorizontalAlignment="Left" Margin="10,255,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <GroupBox Header="从" HorizontalAlignment="Left" Height="108" Margin="300,32,0,0" VerticalAlignment="Top" Width="291">
+                        <Grid>
+                            <Label Content="源  料  架" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                            <Label Content="料架AB面" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                            <Label Content="源位编码" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                        </Grid>
+                    </GroupBox>
+                    <Label Content="↓" HorizontalAlignment="Left" Margin="305,145,0,0" VerticalAlignment="Top" Height="32" FontSize="18" Width="19" FontWeight="Bold" Foreground="Red"/>
+                    <Label Content="↓" HorizontalAlignment="Left" Margin="435,148,0,0" VerticalAlignment="Top" Height="32" FontSize="18" Width="19" FontWeight="Bold" Foreground="Red"/>
+                    <Label Content="↓" HorizontalAlignment="Left" Margin="565,148,0,0" VerticalAlignment="Top" Height="32" FontSize="18" Width="19" FontWeight="Bold" Foreground="Red"/>
+                    <GroupBox Header="到" HorizontalAlignment="Left" Height="80" Margin="300,180,0,0" VerticalAlignment="Top" Width="291">
+                        <Grid>
+                            <Label Content="目的料架" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                            <Label Content="料架AB面" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+
+                        </Grid>
+                    </GroupBox>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="完成" VerticalAlignment="Top" Width="581" Background="#FFF3D5D5" Margin="10,355,0,0" TextAlignment="Center"/>
+                    <Button Content="确认" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Width="100" Height="60" FontSize="36"/>
+                    <Button Content="源料架完成" HorizontalAlignment="Left" Margin="120,290,0,0" VerticalAlignment="Top" Width="220" Height="60" FontSize="36"/>
+                    <Button Content="目的料架完成" HorizontalAlignment="Left" Margin="350,290,0,0" VerticalAlignment="Top" Width="240" Height="60" FontSize="36"/>
+                    <TabControl Margin="0,380,0.2,-0.2">
+                        <TabItem Header="目的料架">
+                            <Grid Background="#FFE5E5E5">
+                                <DataGrid Margin="0,0,0,0">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="位移单号" Width="180"/>
+                                        <DataGridTextColumn Header="物料编码" Width="180"/>
+                                        <DataGridTextColumn Header="物料名称" Width="180"/>
+                                        <DataGridTextColumn Header="数量" Width="180"/>
+                                        <DataGridTextColumn Header="批号" Width="180"/>
+                                        <DataGridTextColumn Header="源料架" Width="180"/>
+                                        <DataGridTextColumn Header="状态" Width="180"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="源料架">
+                            <Grid>
+                                <DataGrid Margin="0,0,0,0">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="物料编码" Width="180"/>
+                                        <DataGridTextColumn Header="物料名称" Width="180"/>
+                                        <DataGridTextColumn Header="数量" Width="180"/>
+                                        <DataGridTextColumn Header="批号" Width="180"/>
+                                        <DataGridTextColumn Header="状态" Width="180"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="耗材成型作业">
+                <Grid>
+                    <Label Content="耗材工位" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" IsReadOnly="True"/>
+
+                    <Label Content="耗材编码" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="耗材名称" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="耗材状态" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="单      号" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="数      量" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="可选料架" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" Height="25"/>
+                    <ComboBox HorizontalAlignment="Left" Height="25" Margin="90,195,0,0" VerticalAlignment="Top" Width="180"/>
+
+                    <GroupBox Header="从" HorizontalAlignment="Left" Height="108" Margin="300,29,0,0" VerticalAlignment="Top" Width="291">
+                        <Grid>
+                            <Label Content="源  料  架" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                            <Label Content="料架AB面" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                            <Label Content="储位编码" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                        </Grid>
+                    </GroupBox>
+                    <Label Content="↓" HorizontalAlignment="Left" Margin="305,143,0,0" VerticalAlignment="Top" Height="32" FontSize="18" Width="19" FontWeight="Bold" Foreground="Red"/>
+                    <Label Content="↓" HorizontalAlignment="Left" Margin="435,146,0,0" VerticalAlignment="Top" Height="32" FontSize="18" Width="19" FontWeight="Bold" Foreground="Red"/>
+                    <Label Content="↓" HorizontalAlignment="Left" Margin="565,146,0,0" VerticalAlignment="Top" Height="32" FontSize="18" Width="19" FontWeight="Bold" Foreground="Red"/>
+                    <GroupBox Header="到" HorizontalAlignment="Left" Height="108" Margin="300,179,0,0" VerticalAlignment="Top" Width="291">
+                        <Grid>
+                            <Label Content="目标料架" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                            <Label Content="料架AB面" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                            <Label Content="储位编码" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                        </Grid>
+                    </GroupBox>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="完成" VerticalAlignment="Top" Width="580" Background="#FFF3D5D5" Margin="10,385,0,0" TextAlignment="Center"/>
+
+                    <Button Content="单据确认" HorizontalAlignment="Left" Margin="45,300,0,0" VerticalAlignment="Top" Width="180" Height="80" FontSize="36"/>
+                    <Button Content="单据删除" HorizontalAlignment="Left" Margin="345,300,0,0" VerticalAlignment="Top" Width="180" Height="80" FontSize="36"/>
+
+                    <DataGrid Margin="0,420,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="源储位编码" Width="180"/>
+                            <DataGridTextColumn Header="源料架编码" Width="180"/>
+                            <DataGridTextColumn Header="耗材编码" Width="180"/>
+                            <DataGridTextColumn Header="耗材名称" Width="180"/>
+                            <DataGridTextColumn Header="数量" Width="180"/>
+                            <DataGridTextColumn Header="状态" Width="180"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="耗材位移作业">
+                <Grid>
+                    <Label Content="上架工位" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" IsReadOnly="True"/>
+
+                    <Label Content="耗材编码" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="耗材名称" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="耗材状态" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="单      号" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="数      量" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="实际数量" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="可选料架" HorizontalAlignment="Left" Margin="10,225,0,0" VerticalAlignment="Top" Height="25"/>
+                    <ComboBox HorizontalAlignment="Left" Height="25" Margin="90,225,0,0" VerticalAlignment="Top" Width="180"/>
+
+                    <GroupBox Header="从" HorizontalAlignment="Left" Height="108" Margin="300,29,0,0" VerticalAlignment="Top" Width="291">
+                        <Grid>
+                            <Label Content="源  料  架" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                            <Label Content="料架AB面" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                            <Label Content="储位编码" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                        </Grid>
+                    </GroupBox>
+                    <Label Content="↓" HorizontalAlignment="Left" Margin="305,143,0,0" VerticalAlignment="Top" Height="32" FontSize="18" Width="19" FontWeight="Bold" Foreground="Red"/>
+                    <Label Content="↓" HorizontalAlignment="Left" Margin="435,146,0,0" VerticalAlignment="Top" Height="32" FontSize="18" Width="19" FontWeight="Bold" Foreground="Red"/>
+                    <Label Content="↓" HorizontalAlignment="Left" Margin="565,146,0,0" VerticalAlignment="Top" Height="32" FontSize="18" Width="19" FontWeight="Bold" Foreground="Red"/>
+                    <GroupBox Header="到" HorizontalAlignment="Left" Height="108" Margin="300,179,0,0" VerticalAlignment="Top" Width="291">
+                        <Grid>
+                            <Label Content="目标料架" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                            <Label Content="料架AB面" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                            <Label Content="储位编码" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="25"/>
+                            <TextBox HorizontalAlignment="Left" Height="25" Margin="90,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                        </Grid>
+                    </GroupBox>
+                    <Button Content="确认" HorizontalAlignment="Left" Margin="20,300,0,0" VerticalAlignment="Top" Width="120" Height="80" FontSize="36"/>
+                    <Button Content="完成" HorizontalAlignment="Left" Margin="160,300,0,0" VerticalAlignment="Top" Width="120" Height="80" FontSize="36"/>
+                    <Button Content="当前耗材" HorizontalAlignment="Left" Margin="300,300,0,0" VerticalAlignment="Top" Width="180" Height="80" FontSize="36"/>
+                    <Button Content="条码打印" HorizontalAlignment="Left" Margin="500,300,0,0" VerticalAlignment="Top" Width="180" Height="80" FontSize="36"/>
+
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="完成" VerticalAlignment="Top" Width="580" Background="#FFF3D5D5" Margin="10,385,0,0" TextAlignment="Center"/>
+
+                    <TabControl Margin="0,410,0.2,-0.2">
+                        <TabItem Header="移库任务">
+                            <Grid Background="#FFE5E5E5">
+                                <DataGrid Margin="0,0,0,0">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="位移单号" Width="180"/>
+                                        <DataGridTextColumn Header="耗材编码" Width="180"/>
+                                        <DataGridTextColumn Header="耗材名称" Width="180"/>
+                                        <DataGridTextColumn Header="数量" Width="180"/>
+                                        <DataGridTextColumn Header="批号" Width="180"/>
+                                        <DataGridTextColumn Header="源料架" Width="180"/>
+                                        <DataGridTextColumn Header="状态" Width="180"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="条码">
+                            <Grid>
+                                <DataGrid Margin="0,0,0,0">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="物料编码" Width="180"/>
+                                        <DataGridTextColumn Header="物料名称" Width="180"/>
+                                        <DataGridTextColumn Header="数量" Width="180"/>
+                                        <DataGridTextColumn Header="批号" Width="180"/>
+                                        <DataGridTextColumn Header="状态" Width="180"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="盘点作业">
+                <Grid>
+                    <Label Content="盘点工位" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" IsReadOnly="True"/>
+                    <Label Content="条　　码" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="物料编码" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="储位编码" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="料架AB面" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="盘点数量" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="实际数量" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <TextBox HorizontalAlignment="Left" Height="55" Margin="300,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
+                    <Label Content="批　　号" HorizontalAlignment="Left" Margin="300,105,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="380,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="生产日期" HorizontalAlignment="Left" Margin="300,135,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="380,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="有 效 期" HorizontalAlignment="Left" Margin="300,165,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="380,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="盘点单号" HorizontalAlignment="Left" Margin="300,195,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="380,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Button Content="确 认" HorizontalAlignment="Left" Margin="45,240,0,0" VerticalAlignment="Top" Width="180" Height="80" FontSize="36"/>
+                    <Button Content="完 成" HorizontalAlignment="Left" Margin="345,240,0,0" VerticalAlignment="Top" Width="180" Height="80" FontSize="36"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="45,340,0,0" TextWrapping="Wrap" Text="完成" VerticalAlignment="Top" Width="480" Background="#FFF3D5D5" TextAlignment="Center"/>
+                    <DataGrid Height="351" Margin="0,370,0,0" VerticalAlignment="Top">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="物料编码" Width="180"/>
+                            <DataGridTextColumn Header="物料名称" Width="180"/>
+                            <DataGridTextColumn Header="盘点数量" Width="180"/>
+                            <DataGridTextColumn Header="批号" Width="180"/>
+                            <DataGridTextColumn Header="物料条码" Width="180"/>
+                            <DataGridTextColumn Header="状态" Width="180"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="组车拣选作业">
+                <Grid>
+                    <Label Content="拣货工位" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" IsReadOnly="True"/>
+                    <Label Content="拣货模式" HorizontalAlignment="Left" Margin="310,10,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="390,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" IsReadOnly="True"/>
+                    <Label Content="条　　码" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="物料编码" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="拣货数量" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="已捡数量" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="实际数量" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="储位编码" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="格  口  号" HorizontalAlignment="Left" Margin="10,225,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+
+                    <Button Content="确 认" HorizontalAlignment="Left" Margin="45,276,0,0" VerticalAlignment="Top" Width="180" Height="80" FontSize="36"/>
+                    <Button Content="完 成" HorizontalAlignment="Left" Margin="345,276,0,0" VerticalAlignment="Top" Width="180" Height="80" FontSize="36"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="45,376,0,0" TextWrapping="Wrap" Text="完成" VerticalAlignment="Top" Width="480" Background="#FFF3D5D5" TextAlignment="Center"/>
+                    <DataGrid Margin="0,410,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="物料编码" Width="180"/>
+                            <DataGridTextColumn Header="物料名称" Width="180"/>
+                            <DataGridTextColumn Header="数量" Width="180"/>
+                            <DataGridTextColumn Header="批号" Width="180"/>
+                            <DataGridTextColumn Header="状态" Width="180"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="扫描确认">
+                <Grid>
+                    <Label Content="耗材条码" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" IsReadOnly="True"/>
+                    <Label Content="快      递" HorizontalAlignment="Left" Margin="310,10,0,0" VerticalAlignment="Top" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="390,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" IsReadOnly="True"/>
+                    <Button Content="查  询" HorizontalAlignment="Left" Margin="45,280,0,0" VerticalAlignment="Top" Width="180" Height="80" FontSize="36"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="310,50,0,0" TextWrapping="Wrap" Text="未搜索到相关信息" VerticalAlignment="Top" Height="310" Width="400" Background="#FFFFFB7F"/>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <StatusBar Margin="0,0,0,0" Height="22" VerticalAlignment="Bottom" HorizontalContentAlignment="Stretch">
+            <TextBlock Text="当前用户:"/>
+            <TextBlock Text="系统管理员"/>
+            <ProgressBar Value="70" Width="100" Height="16" HorizontalAlignment="Right"/>
+        </StatusBar>
+
     </Grid>
 </Window>
